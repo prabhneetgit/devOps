@@ -4,7 +4,7 @@
 
 	<groupId>com.example</groupId>
 	<artifactId>devops</artifactId>
-	<version>1.0.5-SNAPSHOT</version>
+	<version>1.0.5</version>
 	<packaging>war</packaging>
 
 	<name>devops</name>
@@ -117,7 +117,7 @@
 		<connection>scm:git:git@github.com:prabhneetgit/devOps.git</connection>
 		<developerConnection>scm:git:git@github.com:prabhneetgit/devOps.git</developerConnection>
 		<url>git@github.com:prabhneetgit/devOps.git</url>
-		<tag>v1.0.0</tag>
+		<tag>v1.0.5</tag>
 	</scm>
 
 
