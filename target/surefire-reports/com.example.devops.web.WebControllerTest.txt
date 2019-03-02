@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.devops.web.WebControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.984 sec - in com.example.devops.web.WebControllerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.245 sec - in com.example.devops.web.WebControllerTest
