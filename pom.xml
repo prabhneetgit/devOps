@@ -72,6 +72,7 @@
 					<checkModificationExcludes>
 						<checkModificationExclude>pom.xml</checkModificationExclude>
 						<checkModificationExclude>.idea/workspace.xml</checkModificationExclude>
+						<checkModificationExclude>**</checkModificationExclude>
 					</checkModificationExcludes>
 				</configuration>
 			</plugin>
