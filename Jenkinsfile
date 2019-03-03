@@ -26,7 +26,7 @@ node {
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' sonar:sonar"
       } else {
-         bat(/"${mvnHome}\bin\mvn" sonar:sonar -Dsonar.projectKey=devops-gitflow -Dsonar.host.url=http://192.168.99.100:9000 -Dsonar.login=dbbb81b1f748556e80e5ac37fd72583a84d7d853/)
+         bat(/"'${mvnHome}\bin\mvn' sonar:sonar -Dsonar.projectKey=devops-gitflow -Dsonar.host.url=http://192.168.99.100:9000 -Dsonar.login=dbbb81b1f748556e80e5ac37fd72583a84d7d853"/)
       }
    }
    stage('Deploy') {
