@@ -27,10 +27,34 @@ node {
          bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
        } // SonarQube taskId is automatically attached to the pipeline context
    }
-   stage('Deploy') {
-       sh 'curl -u jenkins:jenkins -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
-   }
-   stage("Smoke Test"){
-       sh "curl --retry-delay 10 --retry 5 http://localhost:8080/devops"
-   }
+   
+   if(env.BRANCH_NAME == 'master'){
+       stage('Validate Build Post Prod Release') {
+         if (isUnix()) {
+            sh "'${mvnHome}/bin/mvn' clean package"
+         } else {
+            bat(/"${mvnHome}\bin\mvn" clean package/)
+         }
+       }
+
+     }
+
+     if(env.BRANCH_NAME == 'develop'){
+       stage('Snapshot Build And Upload Artifacts') {
+         if (isUnix()) {
+            sh "'${mvnHome}/bin/mvn' clean deploy"
+         } else {
+            bat(/"${mvnHome}\bin\mvn" clean deploy/)
+         }
+       }
+
+       stage('Deploy') {
+          sh 'curl -u jenkins:jenkins -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
+       }
+
+       stage("Smoke Test"){
+          sh "curl --retry-delay 10 --retry 5 http://localhost:8080/devops"
+       }
+
+     }
 }
