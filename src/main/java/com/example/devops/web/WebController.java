@@ -12,7 +12,7 @@ public class WebController {
 
     @RequestMapping("/")
     public String welcome(Model model) {
-        logger.info("Processing index request");
+        logger.info("Processing index request...!!!!");
         model.addAttribute("course", "DevOps");
         return "index";
     }
