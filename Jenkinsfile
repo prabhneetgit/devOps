@@ -27,7 +27,7 @@ node {
          bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
        } // SonarQube taskId is automatically attached to the pipeline context
    }
-   
+
    if(env.BRANCH_NAME == 'master'){
        stage('Validate Build Post Prod Release') {
          if (isUnix()) {
