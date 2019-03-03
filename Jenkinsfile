@@ -22,12 +22,10 @@ node {
         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean verify/)
      }
    }
-   stage('Sonar') {
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' sonar:sonar"
-      } else {
+   stage('SonarQube analysis') {
+       withSonarQubeEnv('My SonarQube Server') {
          bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
-      }
+       } // SonarQube taskId is automatically attached to the pipeline context
    }
    stage('Deploy') {
        sh 'curl -u jenkins:jenkins -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
